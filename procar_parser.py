@@ -1,6 +1,11 @@
 import re
+import sys
 
-procar = open('PROCAR')
+if len(sys.argv)<2:
+    print('POSCAR File is not passed')
+    sys.exit()
+
+procar = open(sys.argv[1])
 lines = procar.readlines()
 
 #Extract data regarding kpoints, nbands and nions
