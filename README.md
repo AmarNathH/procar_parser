@@ -10,6 +10,7 @@ You can execute the script by,
 ```Bash
 python procar_parse.py <path/to/PROCAR file>
 ```
+Make sure the PROCAR file you have is of the same format as the sample PROCAR file in the repository.
 
 Example: If you have your PROCAR file in the same directory as the program,Then you can execute the following command,
 ```Bash 
