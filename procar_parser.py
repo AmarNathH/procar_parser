@@ -1,8 +1,9 @@
 import re
 import sys
+from numpy import empty
 
 if len(sys.argv)<2:
-    print('POSCAR File is not passed')
+    print('Less number of arguments. Please pass the POSCAR file !')
     sys.exit()
 
 procar = open(sys.argv[1])
@@ -16,6 +17,30 @@ n_ions = re.findall('\d+',lines[1])[2]
 print('Number of Kpoints:'+n_kpoints)
 print('Number of Bands:'+n_bands)
 print('Number of Ions:'+n_ions)
+
+#Converting the values from string to integers
+n_kpoints = int(n_kpoints)
+n_bands = int(n_bands)
+n_ions = int(n_ions)
+
+
+band_data_space = n_ions + 5
+kpoint_data_space = n_bands*band_data_space + 3
+
+i_k = 4-1   #line number from where the k-point table starts
+i_b = 2     #line number from where the band table starts
+
+#array to store poscar data
+poscar_data = [[[ 0 for i in range(n_ions)] for j in range(n_bands)] for k in range(n_kpoints)] 
+
+for a in range(n_kpoints):
+    for b in range(n_bands):
+        for c in range(n_ions):
+            poscar_data[a][b][c] = lines[i_k + a*kpoint_data_space + i_b + b*band_data_space + 3 + c]
+
+
+
+
 
 
 
