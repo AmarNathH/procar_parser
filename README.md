@@ -19,8 +19,7 @@ python procar_parse.py PROCAR
 
 ### Generated Output
 The output will be stored in the Output Folder generated after the program has finished running. Each Ion will be having a
-seperate folder with each folder containing text files. Each text file will be for one of the bands and it will include all the the Energy values of various orbitals.
-along all k-points.
+seperate folder with each folder containing text files. Each text file will be for one of the bands and it will include all the the Energy values of various orbitals along all k-points.There will be one more text file which will include all the data together.
 
 Consider a PROCAR file for 2 Ions with 8 bands each along 90 Kpoints, Then the structure of Output directory will be,
 ```
@@ -34,7 +33,7 @@ Output
     │-band_6.txt
     │-band_7.txt
     │-band_8.txt
-    │
+    │-band_combined.txt
 └───Ion2
     │-band_1.txt
     │-band_2.txt
@@ -44,6 +43,7 @@ Output
     │-band_6.txt
     │-band_7.txt
     │-band_8.txt
+    |-band_combined.txt
 ```
 
 Each band files will contain the orbital energies for all the k-points in the PROCAR file.
